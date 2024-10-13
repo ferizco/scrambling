@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Storage</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            text-align: center;
+        }
+        form {
+            margin: 20px auto;
+            max-width: 400px;
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        input[type="submit"] {
+            background: #5cb85c;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background: #4cae4c;
+        }
+        table {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Contact Storage</h1>
+    <form method="post" action="/">
+        <input type="text" name="name" placeholder="Enter your name" required>
+        <input type="text" name="phone" placeholder="Enter your phone number" required>
+        <input type="submit" value="Add Contact">
+    </form>
+
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Phone</th>
+        </tr>
+        {{range .}}
+        <tr>
+            <td>{{.Name}}</td>
+            <td>{{.Phone}}</td> <!-- Display scrambled phone number -->
+        </tr>
+        {{end}}
+    </table>
+</body>
+</html>
